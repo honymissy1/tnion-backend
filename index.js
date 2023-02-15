@@ -19,10 +19,6 @@ const storage = multer.diskStorage({
       cb(null, 'TNION' + '_'+ uniqueSuffix + path.extname(file.originalname))
     },
 
-    mimetype: function (req, file, cb) {
-      cb(null, 'we love mimi heyyy')
-    },
-
     mimename: function (req, file, cb) {        
        
         let mimeTypeSplit = file.mimetype.split('/');
@@ -39,21 +35,19 @@ const upload = multer({ storage: storage })
 const login = require('./controllers/login');
 const signup = require('./controllers/signup');
 
-
-
 const app = express();
 app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.listen(process.env.PORT);
 app.use(express.static('public'))
-mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(response =>{
-    console.log('Connected');
-})
+// mongoose.connect(process.env.MONGO_URL,{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+// .then(response =>{
+//     console.log('Connected');
+// })
 
 
 

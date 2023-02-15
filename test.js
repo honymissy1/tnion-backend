@@ -1,20 +1,11 @@
+const median = (arr) =>{
+  let halfIndex = Math.floor(arr.length / 2);
 
-function image () {        
-   let file  = {mimetype: 'image/greenscreen'}
-
-
-
-  let mimeTypeSplit = file.mimetype.split('/');
-
-  if(mimeTypeSplit[0] === 'video'){
-     return 'video';
-    }
-
-  // To accept the file pass `true`, like so:
-  if(mimeTypeSplit[0] === 'image'){ 
-    return 'picture'
+  if(arr.length % 2===0){
+    return (arr[halfIndex - 1] + arr[halfIndex])/2.0;
   }
-
+  return arr[halfIndex]
 }
 
-console.log(image());
+// median([1,8,10,12,13,14]);
+console.log(median([1,8,10,12,13,14,15,16])); 
